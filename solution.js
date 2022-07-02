@@ -20,5 +20,5 @@ terminal: false
            resposta1 += palavras[i].replace(/(.)(?=.*\1)/g, '') + " ";
       }
     } 
-    console.log(resposta1);
+    console.log(resposta1 + ".");
     })

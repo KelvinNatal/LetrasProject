@@ -5,23 +5,20 @@ output: process.stdout,
 terminal: false
 }); 
 
-rl.question('Digite a frase:', input => {
-    var resposta ='';
-    var resposta2 = '';
-    var palavras = input.split(' ')
+    rl.setPrompt("Digite a palavra:");
+    rl.prompt();
+    rl.on('line',  entrada => {                                       
+      var resposta ='';
+      var resposta1 = '';
+      var palavras = entrada.split(' ')
     for(var i = 0; i<palavras.length; i++){
       resposta = palavras[i].replace(/(.)(?=.*\1)/g, '');
       if(resposta === palavras[i]){
-           resposta2 = input;      
+           resposta1 = entrada;      
            break;          
       }else{
-           resposta2 += palavras[i].replace(/(.)(?=.*\1)/g, '') + " ";
+           resposta1 += palavras[i].replace(/(.)(?=.*\1)/g, '') + " ";
       }
     } 
-    console.log(resposta2);
-    rl.on('line',  entrada => {;                                       
-    console.log("Salve\n" + entrada);
-})
-
-
-})
+    console.log(resposta1);
+    })
